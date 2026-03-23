@@ -18,42 +18,40 @@ class AdaptiveETHv6(IStrategy):
     timeframe = "15m"
     can_short = True
 
-    # ROI — optimizable via hyperopt
+    # ROI — hyperopt optimized (1000 epochs, Sharpe loss)
     minimal_roi = {
-        "0": 0.08,
-        "60": 0.04,
-        "180": 0.02,
-        "360": 0.01,
-        "720": 0.005,
+        "0": 0.393,
+        "55": 0.1,
+        "195": 0.038,
+        "439": 0,
     }
 
-    stoploss = -0.035
+    stoploss = -0.194
     trailing_stop = True
-    trailing_stop_positive = 0.01
-    trailing_stop_positive_offset = 0.025
+    trailing_stop_positive = 0.127
+    trailing_stop_positive_offset = 0.153
     trailing_only_offset_is_reached = True
 
     startup_candle_count = 200
     process_only_new_candles = True
 
-    # ── Entry Hyperopt Parameters ──
-    ema_fast = IntParameter(5, 25, default=25, space="buy", optimize=True, load=True)
-    ema_slow = IntParameter(26, 80, default=80, space="buy", optimize=True, load=True)
-    rsi_buy_low = IntParameter(20, 45, default=42, space="buy", optimize=True)
-    rsi_buy_high = IntParameter(55, 75, default=64, space="buy", optimize=True)
-    adx_threshold = IntParameter(15, 30, default=30, space="buy", optimize=True)
-    volume_factor = DecimalParameter(0.8, 1.8, default=1.7, decimals=1, space="buy", optimize=True)
-    use_macd = IntParameter(0, 1, default=1, space="buy", optimize=True)
-    use_bb = IntParameter(0, 1, default=0, space="buy", optimize=True)
+    # ── Entry Parameters (hyperopt optimized) ──
+    ema_fast = IntParameter(5, 25, default=9, space="buy", optimize=True, load=True)
+    ema_slow = IntParameter(26, 80, default=39, space="buy", optimize=True, load=True)
+    rsi_buy_low = IntParameter(20, 45, default=28, space="buy", optimize=True, load=True)
+    rsi_buy_high = IntParameter(55, 75, default=69, space="buy", optimize=True, load=True)
+    adx_threshold = IntParameter(15, 30, default=15, space="buy", optimize=True, load=True)
+    volume_factor = DecimalParameter(0.8, 1.8, default=1.6, decimals=1, space="buy", optimize=True, load=True)
+    use_macd = IntParameter(0, 1, default=0, space="buy", optimize=True, load=True)
+    use_bb = IntParameter(0, 1, default=0, space="buy", optimize=True, load=True)
 
-    # ── Exit Hyperopt Parameters ──
-    rsi_sell_low = IntParameter(25, 45, default=36, space="sell", optimize=True)
-    rsi_sell_high = IntParameter(55, 80, default=58, space="sell", optimize=True)
-    # Exit RSI thresholds (optimizable)
-    exit_rsi_long = IntParameter(70, 90, default=85, space="sell", optimize=True)
-    exit_rsi_short = IntParameter(10, 30, default=15, space="sell", optimize=True)
-    # Toggle: use exit signals at all? 0=disabled (ROI/SL only), 1=AND logic, 2=OR logic
-    exit_mode = IntParameter(0, 2, default=0, space="sell", optimize=True)
+    # ── Exit Parameters (hyperopt optimized) ──
+    rsi_sell_low = IntParameter(25, 45, default=25, space="sell", optimize=True, load=True)
+    rsi_sell_high = IntParameter(55, 80, default=74, space="sell", optimize=True, load=True)
+    exit_rsi_long = IntParameter(70, 90, default=85, space="sell", optimize=True, load=True)
+    exit_rsi_short = IntParameter(10, 30, default=13, space="sell", optimize=True, load=True)
+    # Toggle: 0=disabled (ROI/SL only), 1=AND logic, 2=OR logic
+    exit_mode = IntParameter(0, 2, default=0, space="sell", optimize=True, load=True)
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe["rsi"] = ta.RSI(dataframe, timeperiod=14)

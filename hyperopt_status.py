@@ -4,7 +4,7 @@ import json, time, glob, os, sys
 
 RESULTS_DIR = "/home/giuseppe/freqtrade-bot/user_data/hyperopt_results"
 OUTPUT = "/var/www/showcase/hyperopt_status.json"
-TARGET_EPOCHS = 2000
+TARGET_EPOCHS = 1000
 
 while True:
     try:
@@ -29,7 +29,7 @@ while True:
                     if entry.get('is_best', False):
                         results = entry.get('results_metrics', {})
                         profit = results.get('profit_total', 0) * 100
-                        trades = results.get('trade_count', 0)
+                        trades = results.get('trade_count', len(results.get('trades', [])))
                         if profit > best_profit:
                             best_profit = round(profit, 2)
                             best_trades = trades
