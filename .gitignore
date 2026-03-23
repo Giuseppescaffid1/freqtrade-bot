@@ -1,0 +1,31 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Freqtrade data (too large for git)
+user_data/data/
+user_data/hyperopt_results/
+user_data/backtest_results/
+user_data/plot/
+user_data/logs/
+
+# Database
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Logs
+*.log
+freqtrade_trade.log
+
+# Secrets — NEVER commit
+config.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Status files
+hyperopt_status.py

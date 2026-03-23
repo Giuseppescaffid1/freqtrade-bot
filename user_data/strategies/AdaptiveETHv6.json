@@ -1,0 +1,38 @@
+{
+  "strategy_name": "AdaptiveETHv6",
+  "params": {
+    "buy": {
+      "adx_threshold": 30,
+      "ema_fast": 25,
+      "ema_slow": 80,
+      "rsi_buy_high": 64,
+      "rsi_buy_low": 42,
+      "use_bb": 0,
+      "use_macd": 1,
+      "volume_factor": 1.7
+    },
+    "sell": {
+      "rsi_sell_high": 58,
+      "rsi_sell_low": 36,
+      "exit_rsi_long": 85,
+      "exit_rsi_short": 15,
+      "exit_mode": 0
+    },
+    "roi": {
+      "0": 0.158,
+      "20": 0.04,
+      "32": 0.029,
+      "120": 0
+    },
+    "stoploss": {
+      "stoploss": -0.058
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.28,
+      "trailing_stop_positive_offset": 0.281,
+      "trailing_only_offset_is_reached": true
+    }
+  },
+  "ft_stratparam_v": 1
+}
