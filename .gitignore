@@ -27,5 +27,5 @@ config.json
 .DS_Store
 Thumbs.db
 
-# Status files
-hyperopt_status.py
+# Temp status files
+hyperopt_status.json
