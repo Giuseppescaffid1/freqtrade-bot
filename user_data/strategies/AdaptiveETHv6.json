@@ -5,38 +5,38 @@
       "max_open_trades": 3
     },
     "buy": {
-      "adx_threshold": 15,
-      "ema_fast": 9,
-      "ema_slow": 39,
-      "rsi_buy_high": 69,
-      "rsi_buy_low": 28,
-      "use_bb": 0,
-      "use_macd": 0,
-      "volume_factor": 1.6
+      "adx_threshold": 29,
+      "ema_fast": 10,
+      "ema_slow": 56,
+      "rsi_buy_high": 55,
+      "rsi_buy_low": 43,
+      "use_bb": 1,
+      "use_macd": 1,
+      "volume_factor": 0.9
     },
     "sell": {
-      "exit_mode": 0,
-      "exit_rsi_long": 85,
-      "exit_rsi_short": 13,
-      "rsi_sell_high": 74,
-      "rsi_sell_low": 25
+      "exit_mode": 2,
+      "exit_rsi_long": 81,
+      "exit_rsi_short": 16,
+      "rsi_sell_high": 57,
+      "rsi_sell_low": 27
     },
     "roi": {
-      "0": 0.393,
-      "55": 0.1,
-      "195": 0.038,
-      "439": 0
+      "0": 0.089,
+      "44": 0.062,
+      "211": 0.04,
+      "405": 0
     },
     "stoploss": {
-      "stoploss": -0.194
+      "stoploss": -0.246
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.127,
-      "trailing_stop_positive_offset": 0.153,
+      "trailing_stop_positive": 0.08,
+      "trailing_stop_positive_offset": 0.172,
       "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2026-03-23 17:41:37.876540+00:00"
+  "export_time": "2026-03-23 18:44:14.872768+00:00"
 }

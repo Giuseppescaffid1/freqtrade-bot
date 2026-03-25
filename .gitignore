@@ -22,6 +22,7 @@ freqtrade_trade.log
 
 # Secrets — NEVER commit
 config.json
+config_sol.json
 
 # OS
 .DS_Store
