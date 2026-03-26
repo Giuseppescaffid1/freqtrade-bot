@@ -1,34 +1,37 @@
 {
   "strategy_name": "QuantSOL",
   "params": {
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
     "buy": {
-      "adx_min": 21,
-      "cooldown_candles": 15,
-      "ema_fast": 11,
-      "ema_slow": 30,
-      "rsi_buy_upper": 47
+      "adx_min": 24,
+      "cooldown_candles": 12,
+      "ema_fast": 14,
+      "ema_slow": 21,
+      "rsi_buy_upper": 50
     },
     "sell": {
-      "exit_rsi_long": 78,
-      "exit_rsi_short": 25,
-      "rsi_sell_lower": 51
+      "exit_rsi_long": 70,
+      "exit_rsi_short": 17,
+      "rsi_sell_lower": 47
     },
     "roi": {
-      "0": 0.235,
-      "23": 0.088,
-      "80": 0.022,
-      "190": 0
+      "0": 0.174,
+      "17": 0.064,
+      "68": 0.015,
+      "148": 0
     },
     "stoploss": {
-      "stoploss": -0.197
+      "stoploss": -0.316
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.076,
-      "trailing_stop_positive_offset": 0.167,
+      "trailing_stop_positive": 0.117,
+      "trailing_stop_positive_offset": 0.195,
       "trailing_only_offset_is_reached": true
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2026-03-24 21:41:00.000000+00:00"
+  "export_time": "2026-03-26 10:55:43.293565+00:00"
 }
